@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => 'https://newsmma.com',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY', 'SomeRandomString'),
+    'key' => 'Uqwj1XMyTV9lykYFjX2jx1TuScRx3K0C',
 
     'cipher' => 'AES-256-CBC',
 
