@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,10 +54,10 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => env('DB_HOST', '46.101.162.43'),
-            'database'  => env('DB_DATABASE', 'forge'),
-            'username'  => env('DB_USERNAME', 'forge'),
-            'password'  => env('DB_PASSWORD', ''),
+            'host'      => '46.101.162.43',
+            'database'  => 'forge',
+            'username'  => 'forge',
+            'password'  => 'Q09hoqFjJk6nI3zId8PY',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
