@@ -19,8 +19,11 @@
             "database"
         ],
         "psr-4": {
-            "App\\": "app/"
-        }
+            "MMA\\": "app/"
+        },
+        "files": [
+            "app/helpers.php"
+        ]
     },
     "autoload-dev": {
         "classmap": [

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace MMA\Events;
 
 abstract class Event
 {
