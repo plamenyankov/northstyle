@@ -109,6 +109,7 @@ return [
     */
 
     'providers' => [
+        Lewis\Presenter\PresenterServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
         /*
          * Laravel Framework Service Providers...

@@ -5,10 +5,20 @@ namespace MMA\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 
 use MMA\Http\Requests;
-use MMA\Http\Controllers\Controller;
+use MMA\Page;
 
 class PagesController extends Controller
 {
+    protected $pages;
+    /**
+     * PagesController constructor.
+     */
+    public function __construct(Page $page)
+    {
+        $this->pages = $page;
+        parent::__construct();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +26,8 @@ class PagesController extends Controller
      */
     public function index()
     {
-        //
+        $pages = $this->pages->all();
+       return view('backend.pages.index',compact('pages'));
     }
 
     /**
@@ -73,7 +84,9 @@ class PagesController extends Controller
     {
         //
     }
+    public function confirm($id){
 
+    }
     /**
      * Remove the specified resource from storage.
      *
