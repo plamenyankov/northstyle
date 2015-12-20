@@ -27,6 +27,16 @@ class PasswordController extends Controller
      */
     public function __construct()
     {
+        $this->redirectTo = route('backend.dashboard');
         $this->middleware('guest');
+    }
+
+    protected function resetPassword($user, $password)
+    {
+        $user->password = $password;
+
+        $user->save();
+
+        auth()->login($user);
     }
 }

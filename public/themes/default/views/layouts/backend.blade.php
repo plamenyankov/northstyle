@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="en">
+<html lang="bg">
 <head>
-    <meta charset="UTF-8">
+    <meta charset='UTF-8'>
     <title>@yield('title') &mdash; news</title>
 
     <link rel="stylesheet" href="{{theme("css/backend.css")}}"/>
@@ -16,7 +16,7 @@
             <li><a href="#">items</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><span class="navbar-text">Hello, Plamen</span></li>
+            <li><span class="navbar-text">Hello, {{$admin->name}}</span></li>
             <li><a href="{{route('auth.logout')}}">Logout</a></li>
         </ul>
     </div>

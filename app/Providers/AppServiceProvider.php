@@ -1,7 +1,7 @@
 <?php
 
 namespace MMA\Providers;
-
+use MMA\View\Composers;
 use Illuminate\Support\ServiceProvider;
 use MMA\View\ThemeViewFinder;
 
@@ -14,6 +14,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->app['view']->composer('layouts.auth',Composers\AddStatusMessage::class);
+        $this->app['view']->composer('layouts.backend',Composers\AddAdminUser::class);
         $this->app['view']->setFinder($this->app['theme.finder']);
     }
 

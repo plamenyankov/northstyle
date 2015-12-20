@@ -1,12 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="bg">
 <head>
-    <meta charset="UTF-8">
+    <meta charset='UTF-8'>
     <title>@yield('heading') &mdash; MMA</title>
     <link rel="stylesheet" href="{{theme("css/backend.css")}}"/>
 
 </head>
 <body>
+
 <div class="container">
     <div class="row vertical-center">
         <div class="col-md-4"></div>
@@ -18,7 +19,7 @@
                 <div class="panel-body">
                     @if($errors->any())
                         <div class="alert alert-danger">
-                            <strong>We found some errors</strong>
+                            <strong>Имате грешка!</strong>
                             <ul>
                                 @foreach($errors->all() as $error)
                                     <li>{{$error}}</li>
@@ -27,11 +28,15 @@
                             </ul>
                         </div>
                     @endif
+                    @if($status)
+                    <div class="alert alert-info">{{$status}}</div>
+                    @endif
                     @yield('content')</div>
             </div>
         </div>
         <div class="col-md-4"></div>
     </div>
 </div>
+
 </body>
 </html>
