@@ -5,10 +5,14 @@ namespace MMA\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 
 use MMA\Http\Requests;
-use MMA\Http\Controllers\Controller;
-
+use MMA\User;
 class UsersController extends Controller
 {
+    protected $users;
+    public function __construct(User $users){
+        $this->users = $users;
+        parent::__construct();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +20,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $users = $this->users->paginate(1);
+        return view('backend.users.index',compact('users'));
     }
 
     /**
@@ -73,7 +78,9 @@ class UsersController extends Controller
     {
         //
     }
-
+    public function confirm($id){
+        //
+    }
     /**
      * Remove the specified resource from storage.
      *

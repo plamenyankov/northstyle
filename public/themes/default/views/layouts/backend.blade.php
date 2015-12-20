@@ -11,9 +11,8 @@
     <div class="container">
         <div class="nav-bar-header"><a href="/" class="navbar-brand">MMA</a></div>
         <ul class="nav navbar-nav">
-            <li><a href="#">items</a></li>
-            <li><a href="#">items</a></li>
-            <li><a href="#">items</a></li>
+            <li><a href="{{route('backend.users.index')}}">Потребители</a></li>
+
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><span class="navbar-text">Hello, {{$admin->name}}</span></li>
