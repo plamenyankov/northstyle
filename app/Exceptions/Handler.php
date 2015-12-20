@@ -43,7 +43,10 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $e)
     {
         if ($e instanceof ModelNotFoundException) {
-            $e = new NotFoundHttpException($e->getMessage(), $e);
+//            $e = new NotFoundHttpException($e->getMessage(), $e);
+        return redirect()->back()->withErrors([
+            'error'=>'Няма такъв запис.'
+        ]);
         }
 
         return parent::render($request, $e);

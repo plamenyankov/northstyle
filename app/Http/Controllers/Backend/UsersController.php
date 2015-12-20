@@ -20,7 +20,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = $this->users->paginate(1);
+        $users = $this->users->paginate(10);
         return view('backend.users.index',compact('users'));
     }
 
@@ -29,9 +29,9 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(User $user)
     {
-        //
+        return view('backend.users.form',compact('user'));
     }
 
     /**
@@ -40,21 +40,12 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\StoreUserRequest $request)
     {
-        //
+       $this->users->create($request->only('name','email','password'));
+        return redirect(route('backend.users.index'))->with('status','User has been created!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -64,7 +55,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = $this->users->findOrFail($id);
+        return view('backend.users.form',compact('user'));
     }
 
     /**
@@ -74,12 +66,15 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\UpdateUserRequest $request, $id)
     {
-        //
+        $user = $this->users->findOrfail($id);
+        $user->fill($request->only('name','email','password'))->save();
+        return redirect(route('backend.users.edit',$user->id))->with('status','User has been updated');
     }
-    public function confirm($id){
-        //
+    public function confirm(Requests\DeleteUserRequest $request,$id){
+        $user = $this->users->findOrfail($id);
+        return view('backend.users.confirm',compact('user'));
     }
     /**
      * Remove the specified resource from storage.
@@ -87,8 +82,10 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Requests\DeleteUserRequest $request,$id)
     {
-        //
+        $user = $this->users->findOrfail($id);
+        $user->delete();
+        return redirect(route('backend.users.index'))->with('status','User has been deleted!');
     }
 }
