@@ -5,6 +5,7 @@
     <title>@yield('title') &mdash; news</title>
 
     <link rel="stylesheet" href="{{theme("css/backend.css")}}"/>
+    <script src="{{theme('js/simplemde.js')}}"></script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-static-top">

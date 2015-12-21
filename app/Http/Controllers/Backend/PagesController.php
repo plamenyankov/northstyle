@@ -35,9 +35,10 @@ class PagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Page $page)
     {
-        //
+        $templates = $this->getPageTemplates();
+        return view('backend.pages.form',compact('page','templates'));
     }
 
     /**
@@ -46,9 +47,10 @@ class PagesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\StorePageRequest $request)
     {
-        //
+        $this->pages->create($request->only('title','uri','name','content','template'));
+        return redirect(route('backend.pages.index'))->with('status','Page has been created!');
     }
 
     /**
@@ -70,7 +72,9 @@ class PagesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $page = $this->pages->findOrfail($id);
+        $templates = $this->getPageTemplates();
+        return view('backend.pages.form',compact('page','templates'));
     }
 
     /**
@@ -80,12 +84,15 @@ class PagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\UpdatePageRequest $request, $id)
     {
-        //
+        $page = $this->pages->findOrfail($id);
+        $page->fill($request->only('title','uri','name','content','template'))->save();
+        return redirect(route('backend.pages.edit',$page->id))->with('status','Page has been updated');
     }
     public function confirm($id){
-
+        $page = $this->pages->findOrfail($id);
+        return view('backend.pages.confirm',compact('page'));
     }
     /**
      * Remove the specified resource from storage.
@@ -95,6 +102,12 @@ class PagesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $page = $this->pages->findOrfail($id);
+        $page->delete();
+        return redirect(route('backend.pages.index'))->with('status','Page has been deleted!');
+    }
+    public function getPageTemplates(){
+        $templates = config('cms.templates');
+        return [''=>'']+array_combine(array_keys($templates),array_keys($templates));
     }
 }
