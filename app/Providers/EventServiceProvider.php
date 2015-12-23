@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'MMA\Events\SomeEvent' => [
-            'MMA\Listeners\EventListener',
+        'auth.login' => [
+            'MMA\Listeners\UpdateLastLoginOnLogin',
         ],
     ];
 

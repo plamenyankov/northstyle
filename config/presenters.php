@@ -14,4 +14,6 @@ return [
     |
     */
 MMA\Page::class => MMA\Presenters\PagePresenter::class,
+MMA\Post::class => MMA\Presenters\PostPresenter::class,
+MMA\User::class => MMA\Presenters\UserPresenter::class,
 ];

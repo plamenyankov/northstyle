@@ -1,6 +1,7 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "simplemde.css";
+@import "datepicker";
 .vertical-center{
   display: flex;
   min-height: 100vh;
@@ -9,4 +10,8 @@
 }
 body{
   padding-bottom: 2rem;
+}
+.excerpt .CodeMirror-sizer{
+  height: 150px;
+  max-height: 150px;
 }
