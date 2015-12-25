@@ -1,10 +1,11 @@
 <?php
 
 namespace MMA\Http\Controllers\Backend;
+
+use Illuminate\Support\Facades\Storage;
 use MMA\Post;
 use Illuminate\Http\Request;
 use MMA\Http\Requests;
-
 class BlogController extends Controller
 {
     protected $post;
@@ -49,6 +50,7 @@ class BlogController extends Controller
     public function store(Requests\StorePostRequest $request)
     {
         $this->post->create(['author_id'=>auth()->user()->id] + $request->only('title','slug','published_at','body','excerpt'));
+//        Storage::put('/resources/views/'.$request->get('title').'.blade.php',$request->get('body'));
         return redirect(route('backend.blog.index'))->with('status','Post has been created.');
     }
 

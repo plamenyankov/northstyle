@@ -1,7 +1,7 @@
-@extends('layouts.backend')
+@extends('layouts.frontend')
 @section('title','MMA')
 
 @section('content')
-    Hello World!
+    {{ Widget::run('recentNews') }}
 @endsection
 

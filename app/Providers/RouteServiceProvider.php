@@ -4,7 +4,7 @@ namespace MMA\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-
+use MMA\Page;
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -40,5 +40,16 @@ class RouteServiceProvider extends ServiceProvider
         $router->group(['namespace' => $this->namespace], function ($router) {
             require app_path('Http/routes.php');
         });
+
+
+        foreach(Page::all() as $page){
+
+            $router->get($page->uri,['as'=>$page->name, function() use ($page,$router){
+                return $this->app->call('MMA\Http\Controllers\PageController@show',[
+                   'page'=>$page,
+                    'parameters'=>$router->current()->parameters()
+                ]);
+            }]);
+        }
     }
 }

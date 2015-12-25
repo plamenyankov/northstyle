@@ -1,8 +1,21 @@
 <?php
 namespace MMA\Presenters;
 use Lewis\Presenter\AbstractPresenter;
+use League\CommonMark\CommonMarkConverter;
 class PagePresenter extends AbstractPresenter
 {
+        protected $markdown;
+    /**
+     * PagePresenter constructor.
+     */
+    public function __construct($object,CommonMarkConverter $markdown)
+    {
+        $this->markdown = $markdown;
+        parent::__construct($object);
+    }
+    public function contentHtml(){
+        return $this->markdown->convertToHtml($this->content);
+    }
     public function prettyUri(){
         return '/'.ltrim($this->uri,'/');
     }
@@ -13,5 +26,8 @@ class PagePresenter extends AbstractPresenter
     public function paddedTitle(){
         return str_repeat('&nbsp;',$this->depth * 4).$this->title;
 
+    }
+    public function uriWildcard(){
+        return $this->uri.'*';
     }
 }
