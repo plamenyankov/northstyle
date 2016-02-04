@@ -5,7 +5,7 @@
 @section('content')
 {!! Form::model($user,[
 'method'=>$user->exists?'put':'post',
-'route'=>$user->exists?['backend.users.update',$user->id]:['backend.users.store']
+'route'=>$user->exists?[fr('backend.users.update'),$user->id]:[fr('backend.users.store')]
 ]) !!}
 <div class="form-group">
     {!! Form::label('name') !!}

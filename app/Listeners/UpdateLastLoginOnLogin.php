@@ -1,5 +1,5 @@
 <?php
-namespace MMA\Listeners;
+namespace Northstyle\Listeners;
 
 use Carbon\Carbon;
 

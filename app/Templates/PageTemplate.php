@@ -6,7 +6,7 @@
  * Time: 18:43
  */
 
-namespace MMA\Templates;
+namespace Northstyle\Templates;
 
 
 use Illuminate\View\View;

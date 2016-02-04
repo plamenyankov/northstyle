@@ -1,6 +1,6 @@
 <?php
 
-namespace MMA\Jobs;
+namespace Northstyle\Jobs;
 
 use Illuminate\Bus\Queueable;
 

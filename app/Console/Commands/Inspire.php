@@ -1,6 +1,6 @@
 <?php
 
-namespace MMA\Console\Commands;
+namespace Northstyle\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

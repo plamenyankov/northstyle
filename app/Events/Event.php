@@ -1,6 +1,6 @@
 <?php
 
-namespace MMA\Events;
+namespace Northstyle\Events;
 
 abstract class Event
 {

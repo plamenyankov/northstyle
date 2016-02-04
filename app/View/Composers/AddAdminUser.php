@@ -6,7 +6,7 @@
  * Time: 20:23
  */
 
-namespace MMA\View\Composers;
+namespace Northstyle\View\Composers;
 use Illuminate\View\View;
 
 class AddAdminUser

@@ -1,11 +1,11 @@
 <?php
 
-namespace MMA\Http\Controllers\Backend;
+namespace Northstyle\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 
-use MMA\Http\Requests;
-use MMA\User;
+use Northstyle\Http\Requests;
+use Northstyle\User;
 class UsersController extends Controller
 {
     protected $users;

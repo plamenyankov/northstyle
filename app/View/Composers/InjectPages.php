@@ -6,10 +6,10 @@
  * Time: 09:49
  */
 
-namespace MMA\View\Composers;
+namespace Northstyle\View\Composers;
 
 use Illuminate\View\View;
-use MMA\Page;
+use Northstyle\Page;
 
 class InjectPages
 {

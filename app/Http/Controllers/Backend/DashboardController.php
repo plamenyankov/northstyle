@@ -1,8 +1,8 @@
 <?php
 
-namespace MMA\Http\Controllers\Backend;
-use MMA\Post;
-use MMA\User;
+namespace Northstyle\Http\Controllers\Backend;
+use Northstyle\Post;
+use Northstyle\User;
 class DashboardController extends Controller{
     public function index(Post $post, User $user){
         $posts = $post->orderBy('updated_at','desc')->take(5)->get();

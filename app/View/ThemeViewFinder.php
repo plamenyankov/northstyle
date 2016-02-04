@@ -6,7 +6,7 @@
  * Time: 10:09
  */
 
-namespace MMA\View;
+namespace Northstyle\View;
 
 use Illuminate\View\FileViewFinder;
 

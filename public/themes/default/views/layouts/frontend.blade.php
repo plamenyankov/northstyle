@@ -8,7 +8,7 @@
 <body>
 <nav class="navbar navbar-default">
     <div class="container">
-        <div class="navbar-header"><a href="/" class="navbar-brand">MMAM</a></div>
+        <div class="navbar-header"><a href="/" class="navbar-brand">Northstyle</a></div>
         <ul class="nav navbar-nav">
             @include('partials.navigation')
         </ul>

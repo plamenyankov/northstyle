@@ -1,6 +1,6 @@
 <?php
 
-namespace MMA\Providers;
+namespace Northstyle\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -14,7 +14,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         'auth.login' => [
-            'MMA\Listeners\UpdateLastLoginOnLogin',
+            'Northstyle\Listeners\UpdateLastLoginOnLogin',
         ],
     ];
 

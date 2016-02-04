@@ -1,9 +1,9 @@
 <?php
 
-namespace MMA\Widgets;
+namespace Northstyle\Widgets;
 
 use Arrilot\Widgets\AbstractWidget;
-use MMA\Post;
+use Northstyle\Post;
 
 class RecentNews extends AbstractWidget
 {

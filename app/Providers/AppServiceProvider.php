@@ -1,9 +1,9 @@
 <?php
 
-namespace MMA\Providers;
-use MMA\View\Composers;
+namespace Northstyle\Providers;
+use Northstyle\View\Composers;
 use Illuminate\Support\ServiceProvider;
-use MMA\View\ThemeViewFinder;
+use Northstyle\View\ThemeViewFinder;
 
 class AppServiceProvider extends ServiceProvider
 {

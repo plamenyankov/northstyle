@@ -1,6 +1,6 @@
 <?php
 
-namespace MMA;
+namespace Northstyle;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

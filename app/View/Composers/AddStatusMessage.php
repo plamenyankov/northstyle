@@ -1,5 +1,5 @@
 <?php
-namespace MMA\View\Composers;
+namespace Northstyle\View\Composers;
  use Illuminate\View\View;
 
  class AddStatusMessage {

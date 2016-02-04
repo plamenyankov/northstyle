@@ -1,6 +1,6 @@
 <?php
 
-namespace MMA;
+namespace Northstyle;
 
 use Baum\Node;
 

@@ -1,5 +1,5 @@
 <?php
-namespace MMA\Templates;
+namespace Northstyle\Templates;
 use Illuminate\View\View;
 /**
  * Created by PhpStorm.

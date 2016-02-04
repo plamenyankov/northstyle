@@ -1,10 +1,12 @@
 <?php
 
-namespace MMA\Providers;
+namespace Northstyle\Providers;
 
-use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-use MMA\Page;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Router;
+use Northstyle\Page;
+
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -14,12 +16,12 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'MMA\Http\Controllers';
+    protected $namespace = 'Northstyle\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  \Illuminate\Routing\Router $router
      * @return void
      */
     public function boot(Router $router)
@@ -32,24 +34,26 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define the routes for the application.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  \Illuminate\Routing\Router $router
      * @return void
      */
-    public function map(Router $router)
+    public function map(Router $router, Request $request)
     {
-        $router->group(['namespace' => $this->namespace], function ($router) {
+        $locale = $request->segment(1);
+        $this->app->setLocale($locale);
+//dd($locale);
+        $router->group(['namespace' => $this->namespace, 'prefix' => $locale], function ($router) {
             require app_path('Http/routes.php');
         });
 
-
-        foreach(Page::all() as $page){
-
-            $router->get($page->uri,['as'=>$page->name, function() use ($page,$router){
-                return $this->app->call('MMA\Http\Controllers\PageController@show',[
-                   'page'=>$page,
-                    'parameters'=>$router->current()->parameters()
-                ]);
-            }]);
+//            foreach (Page::all() as $page) {
+//                $router->get($locale . '/' . $page->uri, ['as' => $page->name, function () use ($page, $router) {
+//                    return $this->app->call('Northstyle\Http\Controllers\PageController@show', [
+//                        'page' => $page,
+//                        'parameters' => $router->current()->parameters()
+//                    ]);
+//                }]);
+//            }
         }
-    }
+
 }

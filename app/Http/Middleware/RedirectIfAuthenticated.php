@@ -1,6 +1,6 @@
 <?php
 
-namespace MMA\Http\Middleware;
+namespace Northstyle\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
@@ -36,7 +36,7 @@ class RedirectIfAuthenticated
     {
         if ($this->auth->check()) {
 //            return redirect('/');
-            return redirect(route('backend.dashboard'));
+            return redirect(lr('/backend/dashboard'));
         }
 
         return $next($request);

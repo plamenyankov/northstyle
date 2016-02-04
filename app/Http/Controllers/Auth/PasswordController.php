@@ -1,8 +1,8 @@
 <?php
 
-namespace MMA\Http\Controllers\Auth;
+namespace Northstyle\Http\Controllers\Auth;
 
-use MMA\Http\Controllers\Controller;
+use Northstyle\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller

@@ -10,17 +10,20 @@
 <body>
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
-        <div class="nav-bar-header"><a href="/" class="navbar-brand">MMA</a></div>
+        <div class="nav-bar-header"><a href="/" class="navbar-brand">Northstyle</a></div>
         <ul class="nav navbar-nav">
-            <li><a href="{{route('backend.dashboard')}}">Dashboard</a></li>
-            <li><a href="{{route('backend.users.index')}}">Users</a></li>
-            <li><a href="{{route('backend.pages.index')}}">Pages</a></li>
-            <li><a href="{{route('backend.blog.index')}}">Blog Posts</a></li>
+            {{--<li><a href="{{route('backend.dashboard')}}">Dashboard</a></li>--}}
+            <li><a href="{{route('backend.users.index')}}">Потребители</a></li>
+            <li><a href="{{route('backend.pages.index')}}">Страници</a></li>
+            <li><a href="{{route('backend.blog.index')}}">Блог</a></li>
+            <li><a href="{{route('backend.articles.index')}}">Артикали</a></li>
+            <li><a href="{{route('backend.sofa.index')}}">Дивани</a></li>
+            <li><a href="{{route('backend.category.index')}}">Категории</a></li>
 
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><span class="navbar-text">Hello, {{$admin->name}}</span></li>
-            <li><a href="{{route('auth.logout')}}">Logout</a></li>
+            <li><a href="{{lr('/auth/logout')}}">Logout</a></li>
         </ul>
     </div>
 </nav>

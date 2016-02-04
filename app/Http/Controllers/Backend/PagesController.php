@@ -1,11 +1,11 @@
 <?php
 
-namespace MMA\Http\Controllers\Backend;
+namespace Northstyle\Http\Controllers\Backend;
 
 use Baum\MoveNotPossibleException;
 use Illuminate\Http\Request;
-use MMA\Http\Requests;
-use MMA\Page;
+use Northstyle\Http\Requests;
+use Northstyle\Page;
 
 class PagesController extends Controller
 {
@@ -28,6 +28,7 @@ class PagesController extends Controller
     public function index()
     {
         $pages = $this->pages->all();
+//        dd($pages);
         return view('backend.pages.index', compact('pages'));
     }
 

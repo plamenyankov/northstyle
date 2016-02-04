@@ -1,8 +1,8 @@
 <?php
 
-namespace MMA\Http\Requests;
+namespace Northstyle\Http\Requests;
 
-use MMA\Http\Requests\Request;
+use Northstyle\Http\Requests\Request;
 
 class StoreUserRequest extends Request
 {

@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('title','MMA')
+@section('title','Northstyle')
 
 @section('content')
     {{ Widget::run('recentNews') }}

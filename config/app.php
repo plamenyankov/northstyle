@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'https://newsmma.com',
+    'url' => 'localhost',
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'locale' => 'bg',
+    'locales' => ['en' => 'English', 'bg' => 'Bulgarian'],
 
     /*
     |--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'bg',
 
     /*
     |--------------------------------------------------------------------------
@@ -143,10 +143,10 @@ return [
         /*
          * Application Service Providers...
          */
-        MMA\Providers\AppServiceProvider::class,
-        MMA\Providers\AuthServiceProvider::class,
-        MMA\Providers\EventServiceProvider::class,
-        MMA\Providers\RouteServiceProvider::class,
+        Northstyle\Providers\AppServiceProvider::class,
+        Northstyle\Providers\AuthServiceProvider::class,
+        Northstyle\Providers\EventServiceProvider::class,
+        Northstyle\Providers\RouteServiceProvider::class,
 
     ],
 

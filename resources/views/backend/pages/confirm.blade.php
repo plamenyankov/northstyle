@@ -3,7 +3,7 @@
 
 
 @section('content')
-    {!! Form::open(['method'=>'delete','route'=>['backend.pages.destroy',$page->id]]) !!}
+    {!! Form::open(['method'=>'delete','route'=>[fr('backend.pages.destroy'),$page->id]]) !!}
     <div class="alert alert-danger">
         <strong>Warning!</strong> You are about to delete page. This action cannot be undone. Are you sure you want to do this?
     </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace MMA\Http\Controllers;
+namespace Northstyle\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;

@@ -1,11 +1,11 @@
 <?php
 
-namespace MMA\Http\Controllers\Backend;
+namespace Northstyle\Http\Controllers\Backend;
 
 use Illuminate\Support\Facades\Storage;
-use MMA\Post;
+use Northstyle\Post;
 use Illuminate\Http\Request;
-use MMA\Http\Requests;
+use Northstyle\Http\Requests;
 class BlogController extends Controller
 {
     protected $post;
@@ -27,6 +27,7 @@ class BlogController extends Controller
     {
 //        \DB::enableQueryLog();
         $posts = $this->post->with('author')->orderBy('published_at','desc')->paginate(10);
+//        dd($posts);
         return view('backend.blog.index',compact('posts')); //->render();
 //        dd(\DB::getQueryLog());
     }

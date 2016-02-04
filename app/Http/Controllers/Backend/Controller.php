@@ -1,6 +1,6 @@
 <?php
 
-namespace MMA\Http\Controllers\Backend;
+namespace Northstyle\Http\Controllers\Backend;
 
 
 use Illuminate\Routing\Controller as BaseController;

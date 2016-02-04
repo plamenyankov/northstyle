@@ -13,7 +13,9 @@ return [
     | the class names and not actual instances.
     |
     */
-MMA\Page::class => MMA\Presenters\PagePresenter::class,
-MMA\Post::class => MMA\Presenters\PostPresenter::class,
-MMA\User::class => MMA\Presenters\UserPresenter::class,
+    Northstyle\Page::class => Northstyle\Presenters\PagePresenter::class,
+    Northstyle\Category::class => Northstyle\Presenters\PagePresenter::class,
+    Northstyle\Post::class => Northstyle\Presenters\PostPresenter::class,
+    Northstyle\Article::class => Northstyle\Presenters\ArticlePresenter::class,
+    Northstyle\User::class => Northstyle\Presenters\UserPresenter::class,
 ];

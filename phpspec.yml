@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: MMA
-        psr4_prefix: MMA
+        namespace: Northstyle
+        psr4_prefix: Northstyle
         src_path: app

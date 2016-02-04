@@ -1,12 +1,15 @@
 <?php
-namespace MMA\Presenters;
+namespace Northstyle\Presenters;
 use Lewis\Presenter\AbstractPresenter;
 use League\CommonMark\CommonMarkConverter;
 class PagePresenter extends AbstractPresenter
 {
         protected $markdown;
+
     /**
      * PagePresenter constructor.
+     * @param object $object
+     * @param CommonMarkConverter $markdown
      */
     public function __construct($object,CommonMarkConverter $markdown)
     {
@@ -20,6 +23,7 @@ class PagePresenter extends AbstractPresenter
         return '/'.ltrim($this->uri,'/');
     }
     public function linkToPaddedTitle($link){
+
         $padding = str_repeat('&nbsp;',$this->depth * 4);
         return $padding.link_to($link,$this->title);
     }

@@ -24,7 +24,7 @@
             "database"
         ],
         "psr-4": {
-            "MMA\\": "app/"
+            "Northstyle\\": "app/"
         },
         "files": [
             "app/helpers.php"

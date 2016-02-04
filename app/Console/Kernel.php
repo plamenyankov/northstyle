@@ -1,6 +1,6 @@
 <?php
 
-namespace MMA\Console;
+namespace Northstyle\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;

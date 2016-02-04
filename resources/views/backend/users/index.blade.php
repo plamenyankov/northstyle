@@ -21,9 +21,11 @@
                 <td><a href="{{route('backend.users.edit',$user->id)}}">
                         <span class="glyphicon glyphicon-edit"></span>
                     </a></td>
-                <td><a href="{{route('backend.users.confirm',$user->id)}}">
+                <td>
+                    <a href="{{lr('/backend/users/'.$user->id.'/confirm')}}">
                         <span class="glyphicon glyphicon-remove"></span>
-                    </a></td>
+                    </a>
+                </td>
             </tr>
         @endforeach    
         </tbody>

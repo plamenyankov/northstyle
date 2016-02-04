@@ -1,6 +1,6 @@
 <?php
 
-namespace MMA\Exceptions;
+namespace Northstyle\Exceptions;
 
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;

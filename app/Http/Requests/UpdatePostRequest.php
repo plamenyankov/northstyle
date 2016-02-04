@@ -1,6 +1,6 @@
 <?php
 
-namespace MMA\Http\Requests;
+namespace Northstyle\Http\Requests;
 
 
 class UpdatePostRequest extends StorePostRequest

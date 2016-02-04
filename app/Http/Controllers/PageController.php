@@ -6,9 +6,9 @@
  * Time: 17:38
  */
 
-namespace MMA\Http\Controllers;
+namespace Northstyle\Http\Controllers;
 
-use MMA\Page;
+use Northstyle\Page;
 class PageController extends Controller
 {
     public function show(Page $page, array $parameters){

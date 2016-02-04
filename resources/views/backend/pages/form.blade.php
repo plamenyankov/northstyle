@@ -5,7 +5,7 @@
 @section('content')
     {!! Form::model($page,[
     'method'=>$page->exists?'put':'post',
-    'route'=>$page->exists?['backend.pages.update',$page->id]:['backend.pages.store']
+    'route'=>$page->exists?[fr('backend.pages.update'),$page->id]:[fr('backend.pages.store')]
     ]) !!}
     <div class="form-group">
         {!! Form::label('title') !!}

@@ -6,7 +6,7 @@
  * Time: 21:53
  */
 
-namespace MMA\Presenters;
+namespace Northstyle\Presenters;
 
 use Lewis\Presenter\AbstractPresenter;
 use League\CommonMark\CommonMarkConverter;

@@ -1,10 +1,10 @@
 <?php
 
-namespace MMA\Http\Controllers\Auth;
+namespace Northstyle\Http\Controllers\Auth;
 
-use MMA\User;
+use Northstyle\User;
 //use Validator;
-use MMA\Http\Controllers\Controller;
+use Northstyle\Http\Controllers\Controller;
 //use Illuminate\Foundation\Auth\ThrottlesLogins;
 //use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -32,8 +32,8 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->redirectAfterLogout = route('auth.login');
-        $this->redirectTo = route('backend.dashboard');
+        $this->redirectAfterLogout = lr('/auth/login');
+        $this->redirectTo = lr('/backend/dashboard');
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
