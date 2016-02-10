@@ -30,8 +30,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
+
         $category = $this->category->all();
-//        dd($category);
+//        dd($category->find(4)->children()->get());
         return view('backend.category.index', compact('category'));
     }
 
@@ -68,7 +69,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
     public function confirm($id)
     {

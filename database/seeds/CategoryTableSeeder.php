@@ -15,7 +15,6 @@ class CategoryTableSeeder extends Seeder
         DB::table('category')->insert([
             [
                 'title'=>'Мека мебел',
-
                 'content'=>'Мека мебел описание',
                 'parent_id'=>null,
                 'lft'=>1,
