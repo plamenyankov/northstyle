@@ -2,7 +2,7 @@
 <html lang="bg">
 <head>
     <meta charset='UTF-8'>
-    <title>@yield('title') &mdash; news</title>
+    <title>@yield('title')</title>
 
     <link rel="stylesheet" href="{{theme("css/backend.css")}}"/>
     <script src="{{theme('js/all.js')}}"></script>
@@ -22,8 +22,8 @@
 
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><span class="navbar-text">Hello, {{$admin->name}}</span></li>
-            <li><a href="{{lr('/auth/logout')}}">Logout</a></li>
+            <li><span class="navbar-text">Здравей, {{$admin->name}}</span></li>
+            <li><a href="{{lr('/auth/logout')}}">Изход</a></li>
         </ul>
     </div>
 </nav>
