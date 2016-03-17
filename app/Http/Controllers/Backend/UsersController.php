@@ -5,7 +5,9 @@ namespace Northstyle\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 
 use Northstyle\Http\Requests;
-use Northstyle\User;
+
+use Northstyle\Module\Core\Model\User;
+
 class UsersController extends Controller
 {
     protected $users;

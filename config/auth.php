@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => Northstyle\User::class,
+    'model' => Northstyle\Module\Core\Model\User::class,
 
     /*
     |--------------------------------------------------------------------------

@@ -5,7 +5,9 @@ namespace Northstyle\Providers;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
-use Northstyle\Page;
+use Northstyle\Module\Content\Model\Page;
+
+use Northstyle\Module\Core\DataObject\Id;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -16,7 +18,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'Northstyle\Http\Controllers';
+    protected $namespace = 'Northstyle';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -26,9 +28,37 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        //
-
         parent::boot($router);
+
+		$router->bind('id', function($value) {
+			$id = Id::create($value);
+
+			return $id;
+		});
+
+		$router->bind('page_id', function($value) {
+			$id = Id::create($value);
+
+			return $id;
+		});
+
+		$router->bind('store_id', function($value) {
+			$id = Id::create($value);
+
+			return $id;
+		});
+
+		$router->bind('user_id', function($value) {
+			$id = Id::create($value);
+
+			return $id;
+		});
+
+		$router->bind('product_id', function($value) {
+			$id = Id::create($value);
+
+			return $id;
+		});
     }
 
     /**
@@ -41,19 +71,10 @@ class RouteServiceProvider extends ServiceProvider
     {
         $locale = $request->segment(1);
         $this->app->setLocale($locale);
-//dd($locale);
-        $router->group(['namespace' => $this->namespace, 'prefix' => $locale], function ($router) {
+
+        $router->group(['namespace' => $this->namespace, 'prefix' => $locale, 'as' => $locale . '.'], function ($router) {
             require app_path('Http/routes.php');
         });
-
-//            foreach (Page::all() as $page) {
-//                $router->get($locale . '/' . $page->uri, ['as' => $page->name, function () use ($page, $router) {
-//                    return $this->app->call('Northstyle\Http\Controllers\PageController@show', [
-//                        'page' => $page,
-//                        'parameters' => $router->current()->parameters()
-//                    ]);
-//                }]);
-//            }
-        }
+	}
 
 }

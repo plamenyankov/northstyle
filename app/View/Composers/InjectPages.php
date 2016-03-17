@@ -9,11 +9,12 @@
 namespace Northstyle\View\Composers;
 
 use Illuminate\View\View;
-use Northstyle\Page;
+use Northstyle\Module\Content\Model\Page;
 
 class InjectPages
 {
     protected $pages;
+
     /**
      * InjectPages constructor.
      */
@@ -21,9 +22,10 @@ class InjectPages
     {
         $this->pages = $page;
     }
+
     public function compose(View $view){
         $pages = $this->pages->all()->toHierarchy();
-//        dd($pages);
+
         $view->with('pages',$pages);
     }
 }

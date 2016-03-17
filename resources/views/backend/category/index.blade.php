@@ -24,12 +24,8 @@
             @foreach($category as $page)
                 <tr>
                     <td>
-                        {!! $page->linkToPaddedTitle(route('backend.category.edit',$page->id)) !!}
-{{----}}
+                        {!! $linkToPaddedTitle($page, route('backend.content.page.edit',$page->id->value())) !!}
                     </td>
-                    {{--<td><a href="{{url($page->uri)}}">{{$page->pretty_uri}}</a></td>--}}
-                    {{--<td>{{$page->title or 'None'}}</td>--}}
-                    {{--<td>{{$page->template or 'None'}}</td>--}}
                     <td><a href="{{route('backend.category.edit',$page->id)}}">
                             <span class="glyphicon glyphicon-edit"></span>
                         </a></td>

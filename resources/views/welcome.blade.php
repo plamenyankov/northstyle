@@ -4,4 +4,3 @@
 @section('content')
     {{ Widget::run('recentNews') }}
 @endsection
-

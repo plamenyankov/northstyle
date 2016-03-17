@@ -38,6 +38,7 @@ if (!function_exists('route')) {
         if (in_array($name,['auth.login','auth.password.email'])) {
             $lang = '';
         }
+		
         return app('url')->route($lang . $name, $parameters, $absolute, $route);
     }
 }

@@ -111,7 +111,6 @@ return [
     'providers' => [
         Arrilot\Widgets\ServiceProvider::class,
         Baum\Providers\BaumServiceProvider::class,
-        Lewis\Presenter\PresenterServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
         /*
          * Laravel Framework Service Providers...
@@ -147,7 +146,10 @@ return [
         Northstyle\Providers\AuthServiceProvider::class,
         Northstyle\Providers\EventServiceProvider::class,
         Northstyle\Providers\RouteServiceProvider::class,
-
+		Northstyle\Providers\ViewServiceProvider::class,
+		Northstyle\Module\Core\Provider\Behavior::class,
+		Northstyle\Module\Content\Provider\Behavior::class,
+		Northstyle\Module\Shop\Provider\Behavior::class
     ],
 
     /*
