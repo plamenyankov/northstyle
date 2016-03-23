@@ -2,7 +2,7 @@
 
 namespace Northstyle\Module\Core\Behavior;
 
-use Northstyle\Module\Core\Model\User as UserModel;
+use Northstyle\Module\Shop\Model\User as UserModel;
 
 use Northstyle\Module\Core\Backend\Http\Request\StoreUserRequest;
 

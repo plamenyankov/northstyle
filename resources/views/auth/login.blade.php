@@ -14,7 +14,7 @@
         {!! Form::password('password',['class'=>'form-control']) !!}
     </div>
     {!! Form::submit('Login',['class'=>'btn btn-primary']) !!}
-    <a href="{{route('backend.core.auth.password.email')}}" class="small">Forgot your password?</a>
+    <a href="{{route('backend.auth.password.email')}}" class="small">Forgot your password?</a>
     {!! Form::close() !!}
 @endsection
 

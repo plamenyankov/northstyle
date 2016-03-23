@@ -24,7 +24,10 @@ class ViewServiceProvider extends IlluminateServiceProvider {
         $this->app['view']->composer(['layouts.auth','layouts.backend'],Composers\AddStatusMessage::class);
         $this->app['view']->composer('layouts.backend',Composers\AddAdminUser::class);
         $this->app['view']->composer('layouts.frontend',Composers\InjectPages::class);
+		$this->app['view']->composer('*', \Northstyle\Composer\Dashboard::class);
+		$this->app['view']->composer('*', \Northstyle\Composer\LanguagesDropdown::class);
 		$this->app['view']->composer('*', \Northstyle\Module\Content\Composer\PaddedPageTitleDropdownOptions::class);
+		$this->app['view']->composer('*', \Northstyle\Module\Shop\Composer\AccessibleStoresDropdownOptions::class);
 
         $this->app['view']->setFinder($this->app['theme.finder']);
 
@@ -33,7 +36,5 @@ class ViewServiceProvider extends IlluminateServiceProvider {
 
 			return $helper->linkToPaddedTitle($pageDO, $link);
 		});
-
-		$this->app['view']->share('currentStore', new \Northstyle\Module\Shop\DataObject\Store());
 	}
 }

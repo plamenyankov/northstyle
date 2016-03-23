@@ -20,12 +20,12 @@
 					<li><a href="{{route('backend.shop.store.index')}}">Настройки</a></li>
 				</ul>
 			</li>
-			@if ($currentStore)
+			@if (isset($currentStore))
 			<li>
 				<a class="dropdown-toggle" data-toggle="dropdown" href="{{route('backend.shop.index')}}">Магазин <b class="caret"></b></a>
 				<ul class="dropdown-menu multi-level">
-					<li><a href="{{route('backend.shop.store.attribute_set.index', $currentStore->id->value())}}">Атрибути - Множества</a></li>
-					<li><a href="{{route('backend.shop.store.attribute.index', $currentStore->id->value())}}">Атрибути</a></li>
+					<li><a href="{{route('backend.shop.store.store_view.index', $currentStore->id->value())}}">Изгледи</a></li>
+					<li><a href="{{route('backend.shop.store.attribute_set.index', $currentStore->id->value())}}">Атрибути</a></li>
 					<li><a href="{{route('backend.shop.store.product.index', $currentStore->id->value())}}">Продукти</a></li>
 				</ul>
 			</li>
@@ -40,7 +40,6 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><span class="navbar-text">Здравей, {{$admin->name}}</span></li>
-			<li>Магазин: [ Нортстайл ]</li>
             <li><a href="{{lr('/auth/logout')}}">Изход</a></li>
         </ul>
     </div>
@@ -48,7 +47,17 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h3>@yield('title')</h3>
+			<div class="accessible-stores clearfix">
+				<form class="pull-right" action="{{ route('backend.dashboard.set_store') }}">
+					<select name="current_store" class="accessible-stores">
+						@foreach ($accessibleStoresDropdownOptions as $id => $label)
+						<option value="{{ $id }}" @if ($currentStore && $id == $currentStore->id->value()) selected @endif>{{ $label }}</option>
+						@endforeach
+					</select>
+					<button type="submit">Go</button>
+				</form>
+			</div>
+
             @if($errors->any())
                 <div class="alert alert-danger">
                     <strong>Имате грешка!</strong>
@@ -63,7 +72,15 @@
             @if($status)
                 <div class="alert alert-info">{{$status}}</div>
             @endif
-            @yield('content')
+			
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">@yield('title')</h3>
+				</div>
+				<div class="panel-body">
+					@yield('content')
+				</div>
+			</div>
         </div>
     </div>
 </div>

@@ -34,11 +34,17 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        if ($this->auth->guest()) {
+		$name = $request->route()->getName();
+
+		if (strpos($name, 'backend.auth.login') !== false) {
+			return $next($request);
+		}
+
+        if ($this->auth->guest()) {			
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->guest('auth/login');
+                return redirect()->guest(route('backend.auth.login'));
             }
         }
 

@@ -48,6 +48,12 @@ class RouteServiceProvider extends ServiceProvider
 			return $id;
 		});
 
+		$router->bind('store_view_id', function($value) {
+			$id = Id::create($value);
+
+			return $id;
+		});
+
 		$router->bind('user_id', function($value) {
 			$id = Id::create($value);
 
@@ -70,8 +76,13 @@ class RouteServiceProvider extends ServiceProvider
     public function map(Router $router, Request $request)
     {
         $locale = $request->segment(1);
-        $this->app->setLocale($locale);
 
+		if ($locale == 'localhost') {
+			$locale = 'bg';
+		}
+
+        $this->app->setLocale($locale);
+ 
         $router->group(['namespace' => $this->namespace, 'prefix' => $locale, 'as' => $locale . '.'], function ($router) {
             require app_path('Http/routes.php');
         });

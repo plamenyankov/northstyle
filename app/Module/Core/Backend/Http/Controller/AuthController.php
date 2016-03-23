@@ -2,8 +2,6 @@
 
 namespace Northstyle\Module\Core\Backend\Http\Controller;
 
-use Northstyle\Module\Core\Model\User;
-
 use Northstyle\Http\Controllers\Controller;
 
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -31,8 +29,8 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->redirectAfterLogout = lr('/auth/login');
-        $this->redirectTo = lr('/backend/dashboard');
+        $this->redirectAfterLogout = route('backend.auth.login');
+        $this->redirectTo = route('backend.dashboard.index');
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 }

@@ -5,20 +5,20 @@ namespace Northstyle\Module\Shop\Repository;
 use Northstyle\Common\Repository as CommonRepository;
 
 use Northstyle\Module\Core\DataObject\Id;
-use Northstyle\Module\Shop\Model\Store as StoreModel;
-use Northstyle\Module\Shop\DataObject\Builder\Store as StoreDOBuilder;
+use Northstyle\Module\Shop\Model\StoreView as Model;
+use Northstyle\Module\Shop\DataObject\Builder\StoreView as DOBuilder;
 
-class Store extends CommonRepository {
+class StoreView extends CommonRepository {
 	protected $model = null;
 
-	public function __construct(StoreModel $model, StoreDOBuilder $builder) {
+	public function __construct(Model $model, DOBuilder $builder) {
 		$this->model = $model;
 
 		$this->setBuilder($builder);
 	}
 
-	public function findByUserId(Id $id) {
-		$items = $this->model->user($id->value())->get();
+	public function findByStoreId(Id $id) {
+		$items = $this->model->store($id->value())->get();
 
 		return $this->buildThem($items);
 	}

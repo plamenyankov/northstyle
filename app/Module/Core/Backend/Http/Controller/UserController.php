@@ -5,7 +5,6 @@ namespace Northstyle\Module\Core\Backend\Http\Controller;
 use Illuminate\Http\Request;
 use Northstyle\Http\Controllers\Controller;
 
-use Northstyle\Module\Core\Model\User as UserModel;
 use Northstyle\Module\Core\Repository\User as UserRepository;
 
 use Northstyle\Module\Core\Backend\Http\Request\UpdateUserRequest;

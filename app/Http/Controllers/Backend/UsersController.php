@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use Northstyle\Http\Requests;
 
-use Northstyle\Module\Core\Model\User;
+use Northstyle\Module\Shop\Model\User;
 
 class UsersController extends Controller
 {
@@ -74,6 +74,7 @@ class UsersController extends Controller
         $user->fill($request->only('name','email','password'))->save();
         return redirect(route('backend.users.edit',$user->id))->with('status','User has been updated');
     }
+
     public function confirm(Requests\DeleteUserRequest $request,$id){
         $user = $this->users->findOrfail($id);
         return view('backend.users.confirm',compact('user'));

@@ -4,28 +4,31 @@ $router->group(['prefix' => 'api/v1', 'as' => 'api.v1.'], function ($router) {
 	// Route::resource('products', 'API\v1\ProductsController');
 });
 
-$router->group(['prefix' => 'backend', 'as' => 'backend.'], function ($router) {
+$router->group(['prefix' => 'backend', 'as' => 'backend.', 'middleware' => 'auth'], function ($router) {
 
-	Route::resource('dashboard', 'Http\Controllers\Backend\DashboardController');
+	$router->group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function($router) {
+		Route::get('/', ['as' => 'index', 'uses' => 'Http\Controllers\Backend\DashboardController@index']);
+		Route::get('/set_store', ['as' => 'set_store', 'uses' => 'Http\Controllers\Backend\DashboardController@setStore']);
+		Route::get('/set_store_view', ['as' => 'set_store_view', 'uses' => 'Http\Controllers\Backend\DashboardController@setStoreView']);
+	});
+
+	Route::controller('auth/password', 'Module\Core\Backend\Http\Controller\PasswordController', [
+		'getEmail' => 'auth.password.email',
+		'getReset' => 'auth.password.reset'
+	]);
+
+	Route::controller('auth', 'Module\Core\Backend\Http\Controller\AuthController', [
+		'getLogin' => 'auth.login',
+		'postLogin' => 'auth.login.post',
+		'getLogout' => 'auth.logout'
+	]);
 
 	$router->group(['namespace' => 'Module\Core\Backend\Http\Controller', 'prefix' => 'core', 'as' => 'core.'], function ($router) {
 		Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
 
-		Route::controller('auth/password', 'PasswordController', [
-			'getEmail' => 'auth.password.email',
-			'getReset' => 'auth.password.reset'
-		]);
-
-		Route::controller('auth', 'AuthController', [
-			'getLogin' => 'auth.login',
-			'getLogout' => 'auth.logout'
-		]);
-
-		Route::get('getLogin','AuthController@login');
-
 		Route::resource('user', 'UserController');
 
-		Route::get('core/user/{user}/confirm', 'UserController@confirm');
+		Route::get('user/{user}/confirm', 'UserController@confirm');
 	});
 
 	$router->group(['namespace' => 'Module\Content\Backend\Http\Controller', 'prefix' => 'content', 'as' => 'content.'], function ($router) {
@@ -43,6 +46,7 @@ $router->group(['prefix' => 'backend', 'as' => 'backend.'], function ($router) {
 		Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
 
 		Route::resource('store', 'StoreController');
+		Route::resource('store.store_view', 'StoreViewController');
 		Route::resource('store.product', 'StoreProductController');
 		Route::resource('store.attribute_set', 'StoreProductAttributeSetController');
 		Route::resource('store.attribute', 'StoreProductAttributeController');

@@ -21,11 +21,10 @@ if (!function_exists('lr')) {
     }
 }
 if (!function_exists('fr')) {
-
-function fr($route)
-{
-    return App::getLocale() . '.' . $route;
-}
+	function fr($route)
+	{
+		return App::getLocale() . '.' . $route;
+	}
 }
 if (!function_exists('route')) {
 
