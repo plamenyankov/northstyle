@@ -5,7 +5,7 @@
     <title>@yield('title')</title>
 
     <link rel="stylesheet" href="{{theme("css/backend.css")}}"/>
-    <script src="{{theme('js/all.js')}}"></script>
+    <script src="{{theme('js/app.js')}}"></script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-static-top">

@@ -2,9 +2,9 @@
 if (!function_exists('theme')) {
     function theme($path)
     {
-        $config = app('config')->get('cms.theme');
+        $config = app('config')->get('cms');
 
-        return url($config['folder'] . '/' . $config['active'] . '/assets/' . $path);
+        return url($config['base_url'] . '/' . $config['theme']['active'] . '/assets/' . $path);
     }
 }
 if (!function_exists('locale')) {

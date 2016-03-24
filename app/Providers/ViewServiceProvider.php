@@ -10,11 +10,11 @@ use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
 class ViewServiceProvider extends IlluminateServiceProvider {
 	public function register() {
-        $this->app->singleton('theme.finder',function($app){
-
+        $this->app->singleton('theme.finder',function($app) {
             $finder = new ThemeViewFinder($app['files'],$app['config']['view.paths']);
             $config = $app['config']['cms.theme'];
-            $finder->setBasePath($app['path.public'].'/'.$config['folder']);
+
+            $finder->setBasePath($app['config']['cms.base_path']);
             $finder->setActiveTheme($config['active']);
             return $finder;
         });

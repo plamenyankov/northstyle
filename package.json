@@ -5,9 +5,12 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.0.0",
+    "eonasdan-bootstrap-datetimepicker": "^4.15.35",
     "font-awesome": "^4.5.0",
-    "jquery": "^2.1.4",
+    "jquery": "^2.2.2",
     "jquery-ui": "^1.10.5",
-    "laravel-elixir": "*"
+    "laravel-elixir": "*",
+    "moment": "^2.12.0",
+    "simplemde": "^1.10.1"
   }
 }
