@@ -28,6 +28,9 @@ class ViewServiceProvider extends IlluminateServiceProvider {
 		$this->app['view']->composer('*', \Northstyle\Composer\LanguagesDropdown::class);
 		$this->app['view']->composer('*', \Northstyle\Module\Content\Composer\PaddedPageTitleDropdownOptions::class);
 		$this->app['view']->composer('*', \Northstyle\Module\Shop\Composer\AccessibleStoresDropdownOptions::class);
+		$this->app['view']->composer('*', \Northstyle\Module\Shop\Composer\AttributeSetsDropdown::class);
+		$this->app['view']->composer('*', \Northstyle\Module\Shop\Composer\AttributeRepresentationsDropdown::class);
+		$this->app['view']->composer('*', \Northstyle\Module\Shop\Composer\StoreViewList::class);
 
         $this->app['view']->setFinder($this->app['theme.finder']);
 

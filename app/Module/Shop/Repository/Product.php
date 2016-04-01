@@ -14,6 +14,8 @@ class Product extends CommonRepository {
 	public function __construct(ProductModel $model, ProductDOBuilder $builder) {
 		$this->model = $model;
 
+		$this->model->with('values');
+
 		$this->setBuilder($builder);
 	}
 

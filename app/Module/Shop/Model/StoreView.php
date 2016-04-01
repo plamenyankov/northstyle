@@ -22,4 +22,8 @@ class StoreView extends Model {
 	public function language() {
 		return $this->BelongsTo('Northstyle\Module\Core\Model\Language');
 	}
+
+	public function values() {
+		return $this->HasMany("Northstyle\Module\Shop\Model\ObjectValue", 'object_id')->where('type', '=', 'store_view');
+	}
 }

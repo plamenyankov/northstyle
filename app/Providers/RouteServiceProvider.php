@@ -65,6 +65,18 @@ class RouteServiceProvider extends ServiceProvider
 
 			return $id;
 		});
+
+		$router->bind('attribute_set_id', function($value) {
+			$id = Id::create($value);
+
+			return $id;
+		});
+
+		$router->bind('attribute_id', function($value) {
+			$id = Id::create($value);
+
+			return $id;
+		});
     }
 
     /**
@@ -83,8 +95,14 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->app->setLocale($locale);
  
-        $router->group(['namespace' => $this->namespace, 'prefix' => $locale, 'as' => $locale . '.'], function ($router) {
+        $router->group(['namespace' => $this->namespace, 'prefix' => $locale, 'as' => $locale . '.', 'middleware' => 'language'], function ($router) {
             require app_path('Http/routes.php');
+
+			$router->group(['prefix' => 'api/v1', 'as' => 'api.', 'middleware' => 'auth'], function ($router) {
+				$router->group(['namespace' => 'Module\Shop\APIv1\Http\Controller'], function ($router) {
+					\Route::resource('attribute', 'AttributeController');
+				});
+			});
         });
 	}
 

@@ -9803,4 +9803,9 @@ body {
   height: 150px;
   max-height: 150px; }
 
+.object-values-list .title {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #8a8a8a; }
+
 /*# sourceMappingURL=backend.css.map */

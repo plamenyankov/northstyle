@@ -68,6 +68,9 @@ class Handler extends ExceptionHandler
         $whoops = new \Whoops\Run;
         $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
 
+		$whoops->register();
+var_dump($e);
+exit;
         return new \Illuminate\Http\Response(
             $whoops->handleException($e),
             $e->getStatusCode(),

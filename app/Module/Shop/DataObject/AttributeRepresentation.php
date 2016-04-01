@@ -8,21 +8,31 @@ use Northstyle\Module\Core\DataObject\Id;
 use Northstyle\Module\Core\DataObject\Value;
 
 class AttributeRepresentation extends DataObject {
-	public $type = '';
+	public $id = null;
+
+	public $name = '';
+
+	public $class = '';
 
 	public $defaultValue = null;
 
-	public $settings = null;
-
-	public function set_DefaultValue($data) {
-		if (is_object($data) && $data instanceof Value) {
-			$this->defaultValue = $data;
+	public function _init($data = array()) {
+		if (!isset($data['id'])) {
+			$this->set_id(0);
 		}
 	}
 
-	public function set_Settings($data) {
-		if (is_object($data) && $data instanceof AttributeRepresentationSettings) {
-			$this->settings = $data;
+	public function set_id($value) {
+		if (is_object($value) && $value instanceof Id) {
+			$this->id = $value;
+		} else {
+			$this->id = Id::create($value);
+		}
+	}
+
+	public function set_defaultValue($data) {
+		if (is_object($data) && $data instanceof Value) {
+			$this->defaultValue = $data;
 		}
 	}
 }

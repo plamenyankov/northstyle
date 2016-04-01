@@ -15,6 +15,16 @@ class StoreView {
 		$this->languageBuilder = $languageBuilder;
 	}
 
+	public function buildThem($collection) {
+		$dos = array();
+
+		foreach ($collection as $item) {
+			$dos[] = $this->build($item);
+		}
+
+		return $dos;
+	}
+
 	public function build(Model $entity = null) {
 		$do = new DataObject();
 

@@ -1,13 +1,15 @@
 @extends('layouts.backend')
-@section('title','Delete '.$category->title)
-
+@section('title','Потвърждение за изтриване на продукт')
 
 @section('content')
-    {!! Form::open(['method'=>'delete','route'=>[fr('backend.category.destroy'),$category->id]]) !!}
+    {!! Form::open([
+		'method'=>'delete',
+		'url'=> $formUrl
+	]) !!}
     <div class="alert alert-danger">
-        <strong>Внимание!</strong> Ти си напът да изтриеш категория? Това действие е необратимо?
+        <strong>Внимание!</strong> Този продукт ще бъде изтрит. Това действие е крайно. Сигурни ли сте?
     </div>
-    {!! Form::submit('Да, изтрии тази категория!',['class'=>'btn btn-danger']) !!}
-    <a href="{{route('backend.category.index')}}" class="btn btn-success"><strong>Не, махам се от тук!</strong></a>
+    {!! Form::submit('Да, трий!',['class'=>'btn btn-danger']) !!}
+    <a href="{{$indexUrl}}" class="btn btn-success"><strong>Не</strong></a>
     {!! Form::close() !!}
 @endsection

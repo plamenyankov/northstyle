@@ -11,6 +11,8 @@ class Store extends DataObject {
 
 	public $label = '';
 
+	public $attribute_sets = array();
+
 	public $views = array();
 
 	public function _init($data = array()) {
@@ -27,6 +29,20 @@ class Store extends DataObject {
 		}
 	}
 
+	public function set_attribute_sets($value) {
+		if (is_array($value)) {
+			$this->attribute_sets = array();
+
+			foreach ($value as $item) {
+				if (is_object($item) && $item instanceof AttributeSet) {
+					$this->attribute_sets[] = $item;
+				} else if (is_array($item)) {
+					$this->attribute_sets[] = new AttributeSet($item);
+				}
+			}
+		}
+	}
+
 	public function set_views($value) {
 		if (is_array($value)) {
 			$this->views = array();
@@ -34,6 +50,8 @@ class Store extends DataObject {
 			foreach ($value as $item) {
 				if (is_object($item) && $item instanceof StoreView) {
 					$this->views[] = $item;
+				} else if (is_array($item)) {
+					$this->views[] = new StoreView($item);
 				}
 			}
 		}

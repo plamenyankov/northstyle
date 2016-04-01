@@ -12,7 +12,6 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        Middleware\Language::class,
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Northstyle\Http\Middleware\EncryptCookies::class,
         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
@@ -30,5 +29,6 @@ class Kernel extends HttpKernel
         'auth' => \Northstyle\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \Northstyle\Http\Middleware\RedirectIfAuthenticated::class,
+		'language' => Middleware\Language::class
     ];
 }

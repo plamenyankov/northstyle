@@ -1,9 +1,5 @@
 <?php
 
-$router->group(['prefix' => 'api/v1', 'as' => 'api.v1.'], function ($router) {
-	// Route::resource('products', 'API\v1\ProductsController');
-});
-
 $router->group(['prefix' => 'backend', 'as' => 'backend.', 'middleware' => 'auth'], function ($router) {
 
 	$router->group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function($router) {
@@ -48,8 +44,8 @@ $router->group(['prefix' => 'backend', 'as' => 'backend.', 'middleware' => 'auth
 		Route::resource('store', 'StoreController');
 		Route::resource('store.store_view', 'StoreViewController');
 		Route::resource('store.product', 'StoreProductController');
-		Route::resource('store.attribute_set', 'StoreProductAttributeSetController');
-		Route::resource('store.attribute', 'StoreProductAttributeController');
+		Route::resource('store.attribute_set', 'StoreAttributeSetController');
+		Route::resource('store.attribute_set.attribute', 'StoreAttributeSetAttributeController');
 	});
 });
 

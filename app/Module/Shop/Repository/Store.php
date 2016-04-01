@@ -13,6 +13,7 @@ class Store extends CommonRepository {
 
 	public function __construct(StoreModel $model, StoreDOBuilder $builder) {
 		$this->model = $model;
+		$this->model->with(array('views', 'attribute_sets'));
 
 		$this->setBuilder($builder);
 	}

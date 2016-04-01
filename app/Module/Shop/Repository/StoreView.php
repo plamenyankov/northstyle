@@ -18,7 +18,7 @@ class StoreView extends CommonRepository {
 	}
 
 	public function findByStoreId(Id $id) {
-		$items = $this->model->store($id->value())->get();
+		$items = $this->model->storeID($id->value())->get();
 
 		return $this->buildThem($items);
 	}

@@ -14,6 +14,8 @@ class Dashboard {
 
 	protected $storeRepository;
 
+	protected $currentStore = null;
+
     /**
      * Create a new middleware instance.
      *
@@ -23,7 +25,23 @@ class Dashboard {
     public function __construct(StoreRepository $storeRepository)
     {
 		$this->storeRepository = $storeRepository;
+
+		if (\Session::has('currentStoreID')) {
+			$currentStoreID = Id::create(\Session::get('currentStoreID'));
+
+			$this->currentStore = $this->storeRepository->findOneById($currentStoreID);
+		} else {
+			$this->currentStore = null;
+		}
     }
+
+	public function getCurrentStoreId() {
+		return $this->currentStore->id;
+	}
+
+	public function getCurrentStore() {
+		return $this->currentStore;
+	}
 
     /**
      * Bind data to the view.
@@ -33,12 +51,6 @@ class Dashboard {
      */
     public function compose(View $view)
     {
-		if (\Session::has('currentStoreID')) {
-			$currentStore = $this->storeRepository->findOneById(Id::create(\Session::get('currentStoreID')));
-		} else {
-			$currentStore = null;
-		}
-
-		$view->with('currentStore', $currentStore);
+		$view->with('currentStore', $this->currentStore);
     }
 }

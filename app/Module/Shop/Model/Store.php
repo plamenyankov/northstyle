@@ -17,4 +17,12 @@ class Store extends Model
 
 		return $query;
 	}
+
+	public function views() {
+		return $this->HasMany('Northstyle\Module\Shop\Model\StoreView');
+	}
+
+	public function attributeSets() {
+		return $this->HasMany('Northstyle\Module\Shop\Model\AttributeSet');
+	}
 }
